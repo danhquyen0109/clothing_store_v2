@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Men extends StatefulWidget {
+class Women extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _MenState();
+    return _WomenState();
   }
 }
 
-class _MenState extends State<Men> {
+class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.greenAccent,
+      color: Colors.grey,
     );
   }
 }

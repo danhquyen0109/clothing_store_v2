@@ -70,3 +70,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - assets/img/tab1/free_ship.png
+    - assets/img/tab1/happy_october.png
