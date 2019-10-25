@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:store_v2/view/pages/tabview/all_products.dart';
 import 'package:store_v2/view/pages/tabview/children.dart';
 import 'package:store_v2/view/pages/tabview/hot.dart';
 import 'package:store_v2/view/pages/tabview/men.dart';
@@ -7,13 +6,45 @@ import 'package:store_v2/view/pages/tabview/tab.dart';
 import 'package:store_v2/view/pages/tabview/women.dart';
 
 List<HomeTab> tabs = [
-  HomeTab(title: "Tất cả"),
-  HomeTab(title: "Nam"),
   HomeTab(title: "Nữ"),
+  HomeTab(title: "Nam"),
   HomeTab(title: "Trẻ em"),
   HomeTab(title: "Hot")
 ];
-List<Widget> tabViews = [AllProducts(), Men(), Women(), Children(), Hot()];
+List<Widget> tabViews = [Women(), Men(), Children(), Hot()];
+
+List saleItems = [
+  {
+    "image": "assets/img/tab2/sale/sale 1.png",
+    "oldPrice": "278.000",
+    "newPrice": '113.000'
+  },
+  {
+    "image": "assets/img/tab2/sale/sale 2.png",
+    "oldPrice": "324.000",
+    "newPrice": "150.000"
+  },
+  {
+    "image": "assets/img/tab2/sale/sale 3.png",
+    "oldPrice": "335.000",
+    "newPrice": "225.000"
+  },
+  {
+    "image": "assets/img/tab2/sale/denim.png",
+    "oldPrice": "578.000",
+    "newPrice": "450.000"
+  },
+  {
+    "image": "assets/img/tab2/sale/sale 1.png",
+    "oldPrice": "278.000",
+    "newPrice": "113.000"
+  },
+  {
+    "image": "assets/img/tab2/sale/sale 2.png",
+    "oldPrice": "324.000",
+    "newPrice": "150.000"
+  },
+];
 
 List<BottomNavigationBarItem> bottomItems = [
   BottomNavigationBarItem(

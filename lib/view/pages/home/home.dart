@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     // Size size = MediaQuery.of(context).size;
     return MaterialApp(
       home: DefaultTabController(
-        length: 5,
+        length: 4,
         child: Scaffold(
           appBar: AppBar(
             title: Text(
@@ -79,7 +79,6 @@ class _HomePageState extends State<HomePage> {
             selectedFontSize: 12.0,
             items: bottomItems,
             currentIndex: _selectedIndex,
-            
             onTap: (int index) {
               setState(() {
                 _selectedIndex = index;
