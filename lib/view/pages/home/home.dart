@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:store_v2/presenter/language/language_vi.dart';
 import 'package:store_v2/presenter/mock_data/mock_data.dart';
+import 'package:store_v2/view/pages/cart/cart.dart';
+import 'package:store_v2/view/pages/notification/noti.dart';
+import 'package:store_v2/view/pages/search/search.dart';
 import 'package:store_v2/view/pages/tabview/tab.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,7 +35,10 @@ class _HomePageState extends State<HomePage> {
                 Icons.notifications_none,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => NotiPage()));
+              },
             ),
             actions: <Widget>[
               IconButton(
@@ -40,14 +46,20 @@ class _HomePageState extends State<HomePage> {
                   Icons.search,
                   color: Colors.black,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SearchPage()));
+                },
               ),
               IconButton(
                 icon: Icon(
                   Icons.shopping_cart,
                   color: Colors.black,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CartPage()));
+                },
               ),
             ],
             bottom: TabBar(
