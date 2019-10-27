@@ -79,11 +79,11 @@ List<BottomNavigationBarItem> bottomItems = [
   ),
   BottomNavigationBarItem(
     icon: Icon(
-      Icons.notifications_none,
+      Icons.fiber_new,
       // color: Colors.black,
     ),
     title: Text(
-      'Thông báo',
+      'Hàng mới',
       // style: TextStyle(color: Colors.black),
     ),
   ),
@@ -97,4 +97,26 @@ List<BottomNavigationBarItem> bottomItems = [
       // style: TextStyle(color: Colors.black),
     ),
   ),
+];
+
+List<String> suggestItems = [
+  "Áo phông",
+  "Áo khoác",
+  "Áo nỉ",
+  "Áo hoodie",
+  "Áo denim",
+  "Áo bó sát",
+  "Quần jean",
+  "Quần sooc",
+  "Quần lửng",
+  "Quần đùi",
+  "Quần tất",
+  "Quần khaki",
+  "Quần Âu",
+  "Giày thể thao",
+  "Giày da",
+  "Bốt",
+  "Cao gót",
+  "Dép xỏ ngón",
+  "Dép Sandal"
 ];

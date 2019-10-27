@@ -3,6 +3,7 @@ import 'package:store_v2/presenter/language/language_vi.dart';
 import 'package:store_v2/presenter/mock_data/mock_data.dart';
 import 'package:store_v2/view/pages/cart/cart.dart';
 import 'package:store_v2/view/pages/notification/noti.dart';
+import 'package:store_v2/view/pages/profile/profile.dart';
 import 'package:store_v2/view/pages/search/search.dart';
 import 'package:store_v2/view/pages/tabview/tab.dart';
 
@@ -92,9 +93,36 @@ class _HomePageState extends State<HomePage> {
             items: bottomItems,
             currentIndex: _selectedIndex,
             onTap: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
+              switch (index) {
+                case 0:
+                  break;
+                case 1:
+                  setState(() {
+                    _selectedIndex = 0;
+                    // chuyển tới trang danh mục
+                  });
+                  break;
+                case 2:
+                  setState(() {
+                    _selectedIndex = 0;
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SearchPage()));
+                  });
+                  break;
+                case 3:
+                  setState(() {
+                    _selectedIndex = 0;
+                    // chuyển tới trang hàng mới
+                  });
+                  break;
+                case 4:
+                  setState(() {
+                    _selectedIndex = 0;
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ProfilePage()));
+                  });
+                  break;
+              }
             },
           ),
         ),
