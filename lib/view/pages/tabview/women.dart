@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:store_v2/view/pages/product/product.dart';
+import 'package:store_v2/presenter/mock_data/mock_data.dart';
 
 class Women extends StatefulWidget {
   @override
@@ -412,7 +414,8 @@ class _WomenState extends State<Women> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    image("assets/img/tab1/hot sale 01.png", "499.000 VND"),
+                    image("assets/img/mockup_product/product 1.png",
+                        "299.000 VND"),
                     image("assets/img/tab1/hot sale 02.png", "399.000 VND"),
                     image("assets/img/tab1/hot sale 03.png", "799.000 VND"),
                   ],
@@ -511,7 +514,14 @@ class _WomenState extends State<Women> {
           ],
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProductView(
+                      product: exampleProduct,
+                    )));
+      },
     );
   }
 
