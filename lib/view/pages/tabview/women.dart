@@ -414,34 +414,33 @@ class _WomenState extends State<Women> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    image("assets/img/mockup_product/product 1.png",
-                        "299.000 VND"),
-                    image("assets/img/tab1/hot sale 02.png", "399.000 VND"),
-                    image("assets/img/tab1/hot sale 03.png", "799.000 VND"),
+                    image(exampleProduct),
+                    image(exampleProduct1),
+                    image(exampleProduct2),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    image("assets/img/tab1/hot sale 02.png", "499.000 VND"),
-                    image("assets/img/tab1/hot sale 03.png", "399.000 VND"),
-                    image("assets/img/tab1/hot sale 01.png", "799.000 VND"),
+                    image(exampleProduct1),
+                    image(exampleProduct2),
+                    image(exampleProduct3),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    image("assets/img/tab1/hot sale 03.png", "499.000 VND"),
-                    image("assets/img/tab1/hot sale 01.png", "399.000 VND"),
-                    image("assets/img/tab1/hot sale 02.png", "799.000 VND"),
+                    image(exampleProduct),
+                    image(exampleProduct3),
+                    image(exampleProduct2),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    image("assets/img/tab1/hot sale 03.png", "499.000 VND"),
-                    image("assets/img/tab1/hot sale 02.png", "399.000 VND"),
-                    image("assets/img/tab1/hot sale 01.png", "799.000 VND"),
+                    image(exampleProduct1),
+                    image(exampleProduct2),
+                    image(exampleProduct),
                   ],
                 )
               ],
@@ -488,7 +487,7 @@ class _WomenState extends State<Women> {
     );
   }
 
-  Widget image(String imgPath, String price) {
+  Widget image(Product product) {
     return GestureDetector(
       child: Container(
         padding: EdgeInsets.only(bottom: 16.0),
@@ -500,12 +499,12 @@ class _WomenState extends State<Women> {
               height: 180,
               width: 120,
               child: Image.asset(
-                imgPath,
+                product.images[0],
                 fit: BoxFit.cover,
               ),
             ),
             Text(
-              price,
+              product.price,
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 12.0,
@@ -519,7 +518,7 @@ class _WomenState extends State<Women> {
             context,
             MaterialPageRoute(
                 builder: (context) => ProductView(
-                      product: exampleProduct,
+                      product: product,
                     )));
       },
     );

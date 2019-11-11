@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class NotiPage extends StatefulWidget {
   @override
@@ -42,7 +43,13 @@ class _NotiPageState extends State<NotiPage> {
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500)),
               isThreeLine: true,
-              onTap: () {},
+              onTap: () {
+                Fluttertoast.showToast(
+                  msg: "Chức năng đang xây dựng",
+                  backgroundColor: Colors.black54,
+                  textColor: Colors.white,
+                );
+              },
             ),
             Container(
               height: 1.0,
@@ -59,7 +66,13 @@ class _NotiPageState extends State<NotiPage> {
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500)),
               // isThreeLine: true,
-              onTap: () {},
+              onTap: () {
+                Fluttertoast.showToast(
+                  msg: "Chức năng đang xây dựng",
+                  backgroundColor: Colors.black54,
+                  textColor: Colors.white,
+                );
+              },
             ),
             Container(
               height: 1.0,
@@ -80,7 +93,13 @@ class _NotiPageState extends State<NotiPage> {
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500)),
               // isThreeLine: true,
-              onTap: () {},
+              onTap: () {
+                Fluttertoast.showToast(
+                  msg: "Chức năng đang xây dựng",
+                  backgroundColor: Colors.black54,
+                  textColor: Colors.white,
+                );
+              },
             ),
             Container(
               height: 1.0,

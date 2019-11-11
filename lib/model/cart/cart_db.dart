@@ -9,7 +9,7 @@ class CartDB {
   static Database _database;
   CartDB._privateConstructor();
   static final CartDB instance = CartDB._privateConstructor();
-  static final _databaseName = "cart1.db";
+  static final _databaseName = "cart2.db";
   static final _databaseVersion = 1;
 
   String tableName = "cart";
@@ -18,6 +18,8 @@ class CartDB {
   String colPrice = "price";
   String colImages = "images";
   String colSize = "size";
+  String colPicked = "picked";
+  String colNumber = "number";
   String colDate = "date";
 
   Future<Database> get database async {
@@ -38,9 +40,9 @@ class CartDB {
   }
 
   void _createDb(Database db, int newVersion) async {
-    await db.execute(
-        'CREATE TABLE $tableName($colName TEXT, $colPrice TEXT, '
-        '$colImages TEXT, $colSize TEXT, $colDate DATETIME DEFAULT CURRENT_TIMESTAMP)');
+    await db.execute('CREATE TABLE $tableName($colName TEXT, $colPrice TEXT, '
+        '$colImages TEXT, $colSize TEXT, $colPicked TEXT, $colNumber TEXT,'
+        ' $colDate DATETIME DEFAULT CURRENT_TIMESTAMP)');
   }
 
   Future<dynamic> insertProduct(Product product) async {
@@ -81,8 +83,10 @@ class CartDB {
       _listProduct.add(Product(
         name: productAsMap["name"],
         price: productAsMap["price"],
-        images: productAsMap["images"],
-        size: productAsMap["size"],
+        images: [productAsMap["images"]],
+        size: [productAsMap["size"]],
+        picked: productAsMap["picked"],
+        number: productAsMap["number"],
       ));
     });
     return _listProduct;

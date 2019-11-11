@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -35,6 +36,13 @@ class _ProfileState extends State<ProfilePage> {
                 Container(
                   color: Colors.white,
                   child: ListTile(
+                    onTap: () {
+                      Fluttertoast.showToast(
+                        msg: "Chức năng đang xây dựng",
+                        backgroundColor: Colors.black54,
+                        textColor: Colors.white,
+                      );
+                    },
                     leading: Icon(
                       Icons.account_circle,
                       color: Colors.grey[300],
@@ -62,13 +70,20 @@ class _ProfileState extends State<ProfilePage> {
                       ListTile(
                         title: Text(
                           "Sổ địa chỉ",
-                          style: TextStyle(color: Colors.grey),
+                          style:
+                              TextStyle(color: Colors.black.withOpacity(0.7)),
                         ),
                         trailing: Icon(
                           Icons.arrow_forward_ios,
                           size: 16.0,
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          Fluttertoast.showToast(
+                            msg: "Chức năng đang xây dựng",
+                            backgroundColor: Colors.black54,
+                            textColor: Colors.white,
+                          );
+                        },
                       ),
                       Container(
                         color: Colors.grey[200],
@@ -77,13 +92,20 @@ class _ProfileState extends State<ProfilePage> {
                       ListTile(
                         title: Text(
                           "Tuỳ chọn thanh toán",
-                          style: TextStyle(color: Colors.grey),
+                          style:
+                              TextStyle(color: Colors.black.withOpacity(0.7)),
                         ),
                         trailing: Icon(
                           Icons.arrow_forward_ios,
                           size: 16.0,
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          Fluttertoast.showToast(
+                            msg: "Chức năng đang xây dựng",
+                            backgroundColor: Colors.black54,
+                            textColor: Colors.white,
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -99,13 +121,20 @@ class _ProfileState extends State<ProfilePage> {
                       ListTile(
                         title: Text(
                           "Xoá bộ nhớ cache",
-                          style: TextStyle(color: Colors.grey),
+                          style:
+                              TextStyle(color: Colors.black.withOpacity(0.7)),
                         ),
                         trailing: Icon(
                           Icons.arrow_forward_ios,
                           size: 16.0,
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          Fluttertoast.showToast(
+                            msg: "Chức năng đang xây dựng",
+                            backgroundColor: Colors.black54,
+                            textColor: Colors.white,
+                          );
+                        },
                       ),
                       Container(
                         color: Colors.grey[200],
@@ -114,7 +143,8 @@ class _ProfileState extends State<ProfilePage> {
                       SwitchListTile(
                         title: Text(
                           "Bật/Tắt thông báo",
-                          style: TextStyle(color: Colors.grey),
+                          style:
+                              TextStyle(color: Colors.black.withOpacity(0.7)),
                         ),
                         value: selected,
                         selected: true,

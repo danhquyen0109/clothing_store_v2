@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
@@ -6,17 +8,40 @@ import 'package:store_v2/presenter/cart/cart_query.dart';
 class Product {
   String name;
   String price;
+  String picked;
+  String number;
+
+  void setPicked(String sizeOnChoose) {
+    this.picked = sizeOnChoose;
+  }
+
+  void setNumber(String numberOnChoose) {
+    this.number = numberOnChoose;
+  }
+
   List<String> images;
   List<String> size;
 
-  Product({this.name, this.price, this.images, this.size});
+  Product(
+      {this.name,
+      this.price,
+      this.images,
+      this.size,
+      this.picked,
+      this.number});
 
   Map<String, dynamic> toMap() {
+    Map sizeToMap = new Map();
+    for (String item in this.size) {
+      sizeToMap.addAll({this.size.indexOf(item).toString(): item});
+    }
     return {
       "name": this.name,
       "price": this.price,
-      "images": this.images.toString(),
-      "size": this.size.toString(),
+      "images": this.images[0].toString(),
+      "size": json.encode(sizeToMap),
+      "picked": this.picked,
+      "number": this.number,
       "date": DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now())
     };
   }
@@ -50,7 +75,7 @@ class _ProductViewState extends State<ProductView> {
         title: CircleAvatar(
           // backgroundColor: Colors.orange,
           backgroundImage:
-              AssetImage("assets/img/mockup_product/product 1.png"),
+              AssetImage(widget.product.images[0]),
         ),
         actions: <Widget>[
           FlatButton(
@@ -93,7 +118,7 @@ class _ProductViewState extends State<ProductView> {
                     color: Colors.grey.withOpacity(0.6),
                     child: Center(
                       child: Text(
-                        "${index}/${widget.product.images.length.toString()}",
+                        "$index/${widget.product.images.length.toString()}",
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w300),
                       ),

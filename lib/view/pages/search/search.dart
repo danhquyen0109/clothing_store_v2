@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:store_v2/presenter/mock_data/mock_data.dart';
 
 class SearchPage extends StatefulWidget {
@@ -53,7 +54,13 @@ class _SearchState extends State<SearchPage> {
         itemCount: suggest.length,
         itemBuilder: (BuildContext context, int index) {
           return MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              Fluttertoast.showToast(
+                msg: "Chức năng đang xây dựng",
+                backgroundColor: Colors.black54,
+                textColor: Colors.white,
+              );
+            },
             padding: EdgeInsets.zero,
             child: ListTile(
               title: Text(suggest[index]),
