@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:store_v2/presenter/cart/cart_query.dart';
+import 'package:store_v2/view/pages/cart/cart.dart';
 
 class Product {
   String name;
@@ -74,8 +75,7 @@ class _ProductViewState extends State<ProductView> {
         centerTitle: true,
         title: CircleAvatar(
           // backgroundColor: Colors.orange,
-          backgroundImage:
-              AssetImage(widget.product.images[0]),
+          backgroundImage: AssetImage(widget.product.images[0]),
         ),
         actions: <Widget>[
           FlatButton(
@@ -83,7 +83,10 @@ class _ProductViewState extends State<ProductView> {
               Icons.shopping_cart,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => CartPage()));
+            },
           )
         ],
       ),
