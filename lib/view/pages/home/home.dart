@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:store_v2/presenter/language/language_vi.dart';
 import 'package:store_v2/presenter/mock_data/mock_data.dart';
 import 'package:store_v2/view/pages/cart/cart.dart';
@@ -6,6 +7,7 @@ import 'package:store_v2/view/pages/notification/noti.dart';
 import 'package:store_v2/view/pages/profile/profile.dart';
 import 'package:store_v2/view/pages/search/search.dart';
 import 'package:store_v2/view/pages/tabview/tab.dart';
+import 'package:store_v2/view/widgets/cart_bloc.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/home';
@@ -19,6 +21,11 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    var bloc = Provider.of<CartBloc>(context);
+    int totalCount = 0;
+    if (bloc.cart.length > 0) {
+      totalCount = bloc.cart.values.reduce((a, b) => a + b);
+    }
     // Size size = MediaQuery.of(context).size;
     return MaterialApp(
       home: DefaultTabController(
@@ -52,16 +59,56 @@ class _HomePageState extends State<HomePage> {
                       MaterialPageRoute(builder: (context) => SearchPage()));
                 },
               ),
-              IconButton(
-                icon: Icon(
-                  Icons.shopping_cart,
-                  color: Colors.black,
-                ),
-                onPressed: () {
+              GestureDetector(
+                onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => CartPage()));
                 },
+                child: Stack(
+                  children: <Widget>[
+                    new IconButton(
+                      icon: new Icon(
+                        Icons.shopping_cart,
+                        color: Colors.black,
+                      ),
+                      onPressed: null,
+                    ),
+                    new Positioned(
+                      right: 2.0,
+                      top: 2.0,
+                      child: new Stack(
+                        children: <Widget>[
+                          new Icon(Icons.brightness_1,
+                              size: 20.0, color: Colors.redAccent),
+                          new Positioned(
+                            top: 3.0,
+                            right: 6,
+                            child: new Center(
+                              child: new Text(
+                                '$totalCount',
+                                style: new TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
+              // IconButton(
+              //   icon: Icon(
+              //     Icons.shopping_cart,
+              //     color: Colors.black,
+              //   ),
+              //   onPressed: () {
+              //     Navigator.push(context,
+              //         MaterialPageRoute(builder: (context) => CartPage()));
+              //   },
+              // ),
             ],
             bottom: TabBar(
               indicatorColor: Colors.black,

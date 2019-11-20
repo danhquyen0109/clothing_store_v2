@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:store_v2/presenter/cart/cart_query.dart';
 import 'package:store_v2/view/pages/cart/cart.dart';
+import 'package:store_v2/view/widgets/cart_bloc.dart';
 
 class Product {
   String name;
@@ -66,6 +68,11 @@ class _ProductViewState extends State<ProductView> {
   int index = 1;
   @override
   Widget build(BuildContext context) {
+    var bloc = Provider.of<CartBloc>(context);
+    int totalCount = 0;
+    if (bloc.cart.length > 0) {
+      totalCount = bloc.cart.values.reduce((a, b) => a + b);
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -78,16 +85,46 @@ class _ProductViewState extends State<ProductView> {
           backgroundImage: AssetImage(widget.product.images[0]),
         ),
         actions: <Widget>[
-          FlatButton(
-            child: Icon(
-              Icons.shopping_cart,
-              color: Colors.black,
-            ),
-            onPressed: () {
+          GestureDetector(
+            onTap: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => CartPage()));
             },
-          )
+            child: Stack(
+              children: <Widget>[
+                new IconButton(
+                  icon: new Icon(
+                    Icons.shopping_cart,
+                    color: Colors.black,
+                  ),
+                  onPressed: null,
+                ),
+                new Positioned(
+                  right: 2.0,
+                  top: 2.0,
+                  child: new Stack(
+                    children: <Widget>[
+                      new Icon(Icons.brightness_1,
+                          size: 20.0, color: Colors.redAccent),
+                      new Positioned(
+                        top: 3.0,
+                        right: 6,
+                        child: new Center(
+                          child: new Text(
+                            '$totalCount',
+                            style: new TextStyle(
+                                color: Colors.white,
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       body: ListView(
@@ -343,6 +380,7 @@ class _ProductViewState extends State<ProductView> {
               ),
               onTap: () {
                 _saveToCart();
+                bloc.addToCart(widget.product);
               },
             ),
           ],

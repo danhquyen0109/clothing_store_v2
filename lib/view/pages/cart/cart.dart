@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:store_v2/presenter/cart/cart_query.dart';
 import 'package:store_v2/view/pages/product/product.dart';
+import 'package:store_v2/view/widgets/cart_bloc.dart';
+import 'package:provider/provider.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -40,6 +42,8 @@ class _CartState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
+    var bloc = Provider.of<CartBloc>(context);
+    var cart = bloc.cart;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -269,10 +273,14 @@ class _CartState extends State<CartPage> {
                                                 .toStringAsFixed(3);
                                             getGift = (599.000 - totalPrice)
                                                 .toStringAsFixed(3);
+                                            product.setNumber(temp.toString());
+                                            saveProduct(product);
+                                            bloc.clear(product);
                                           });
                                         } else {
                                           setState(() {
                                             _showPopUpDelete(product, context);
+                                            bloc.clear(product);
                                           });
                                         }
                                       },
@@ -299,6 +307,9 @@ class _CartState extends State<CartPage> {
                                               .toStringAsFixed(3);
                                           getGift = (599.000 - totalPrice)
                                               .toStringAsFixed(3);
+                                          product.setNumber(temp.toString());
+                                          saveProduct(product);
+                                          bloc.addToCart(product);
                                         });
                                       },
                                     ),
