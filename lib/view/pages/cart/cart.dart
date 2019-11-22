@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:store_v2/presenter/cart/cart_query.dart';
+import 'package:store_v2/view/pages/payment/address_form.dart';
+import 'package:store_v2/view/pages/payment/payment.dart';
 import 'package:store_v2/view/pages/product/product.dart';
 import 'package:store_v2/view/widgets/cart_bloc.dart';
 import 'package:provider/provider.dart';
@@ -47,6 +49,7 @@ class _CartState extends State<CartPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        // elevation: 0.0,
         leading: IconButton(
           icon: Icon(
             Icons.clear,
@@ -365,7 +368,10 @@ class _CartState extends State<CartPage> {
                   ),
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AddressForm()));
+              },
             )
           ],
         ),

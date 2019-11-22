@@ -487,6 +487,26 @@ class _WomenState extends State<Women> {
     );
   }
 
+  // Widget _hotSale() {
+  //   return GridView.count(
+  //     crossAxisCount: 3,
+  //     children: <Widget>[
+  //       image(exampleProduct),
+  //       image(exampleProduct1),
+  //       image(exampleProduct2),
+  //       image(exampleProduct1),
+  //       image(exampleProduct2),
+  //       image(exampleProduct3),
+  //       image(exampleProduct),
+  //       image(exampleProduct3),
+  //       image(exampleProduct2),
+  //       image(exampleProduct1),
+  //       image(exampleProduct2),
+  //       image(exampleProduct),
+  //     ],
+  //   );
+  // }
+
   Widget image(Product product) {
     return GestureDetector(
       child: Container(
