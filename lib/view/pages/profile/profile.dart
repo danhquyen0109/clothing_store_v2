@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -15,6 +16,7 @@ class _ProfileState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
         backgroundColor: Colors.white,
         leading: BackButton(
           color: Colors.black,
@@ -33,35 +35,35 @@ class _ProfileState extends State<ProfilePage> {
                 SizedBox(
                   height: 8.0,
                 ),
-                Container(
-                  color: Colors.white,
-                  child: ListTile(
-                    onTap: () {
-                      Fluttertoast.showToast(
-                        msg: "Chức năng đang xây dựng",
-                        backgroundColor: Colors.black54,
-                        textColor: Colors.white,
-                      );
-                    },
-                    leading: Icon(
-                      Icons.account_circle,
-                      color: Colors.grey[300],
-                      size: 42.0,
-                    ),
-                    title: Text("Đăng nhập",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w500)),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 16.0,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 8.0,
-                ),
+                // Container(
+                //   color: Colors.white,
+                //   child: ListTile(
+                //     onTap: () {
+                //       Fluttertoast.showToast(
+                //         msg: "Chức năng đang xây dựng",
+                //         backgroundColor: Colors.black54,
+                //         textColor: Colors.white,
+                //       );
+                //     },
+                //     leading: Icon(
+                //       Icons.account_circle,
+                //       color: Colors.grey[300],
+                //       size: 42.0,
+                //     ),
+                //     title: Text("Đăng nhập",
+                //         style: TextStyle(
+                //             color: Colors.black,
+                //             fontSize: 16.0,
+                //             fontWeight: FontWeight.w500)),
+                //     trailing: Icon(
+                //       Icons.arrow_forward_ios,
+                //       size: 16.0,
+                //     ),
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 8.0,
+                // ),
                 Container(
                   color: Colors.white,
                   padding: EdgeInsets.only(left: 8.0),
@@ -140,20 +142,44 @@ class _ProfileState extends State<ProfilePage> {
                         color: Colors.grey[200],
                         height: 1.0,
                       ),
-                      SwitchListTile(
-                        title: Text(
-                          "Bật/Tắt thông báo",
-                          style:
-                              TextStyle(color: Colors.black.withOpacity(0.7)),
+                      Container(
+                        color: Colors.white,
+                        child: ListTile(
+                          onTap: () {
+                            setState(() {
+                              selected = !selected;
+                            });
+                          },
+                          title: Text(
+                            "Bật/Tắt thông báo",
+                            style:
+                                TextStyle(color: Colors.black.withOpacity(0.7)),
+                          ),
+                          trailing: CupertinoSwitch(
+                            activeColor: Colors.black87,
+                            onChanged: (bool value) {
+                              setState(() {
+                                selected = value;
+                              });
+                            },
+                            value: selected,
+                          ),
                         ),
-                        value: selected,
-                        selected: true,
-                        onChanged: (bool value) {
-                          setState(() {
-                            selected = value;
-                          });
-                        },
-                      ),
+                      )
+                      // SwitchListTile(
+                      //   title: Text(
+                      //     "Bật/Tắt thông báo",
+                      //     style:
+                      //         TextStyle(color: Colors.black.withOpacity(0.7)),
+                      //   ),
+                      //   value: selected,
+                      //   selected: true,
+                      //   onChanged: (bool value) {
+                      //     setState(() {
+                      //       selected = value;
+                      //     });
+                      //   },
+                      // ),
                     ],
                   ),
                 ),

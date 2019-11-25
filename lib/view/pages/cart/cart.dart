@@ -30,13 +30,11 @@ class _CartState extends State<CartPage> {
         products = listProduct;
       });
       products.forEach((product) {
-        setState(() {
-          totalPrice = totalPrice +
-              double.parse(product.price) * int.parse(product.number);
-          productCounter = productCounter + int.parse(product.number);
-          freeShip = (999.000 - totalPrice).toStringAsFixed(3);
-          getGift = (599.000 - totalPrice).toStringAsFixed(3);
-        });
+        totalPrice = totalPrice +
+            double.parse(product.price) * int.parse(product.number);
+        productCounter = productCounter + int.parse(product.number);
+        freeShip = (999.000 - totalPrice).toStringAsFixed(3);
+        getGift = (599.000 - totalPrice).toStringAsFixed(3);
       });
     });
     super.initState();
@@ -369,8 +367,12 @@ class _CartState extends State<CartPage> {
                 ),
               ),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AddressForm()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AddressForm(
+                              totalPrice: totalPrice,
+                            )));
               },
             )
           ],

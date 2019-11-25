@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<CartBloc>(
       builder: (context) => CartBloc(),
       child: MaterialApp(
+        routes: <String, WidgetBuilder>{
+          '/home': (BuildContext context) => HomePage(),
+        },
         title: 'Clothing Store',
         theme: ThemeData(
           primarySwatch: Colors.blue,
