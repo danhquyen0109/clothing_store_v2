@@ -30,7 +30,8 @@ dependencies:
   intl: ^0.16.0
   fluttertoast: ^3.1.3
   provider: ^3.0.0
-
+  vertical_tabs: ^0.1.4
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -106,4 +107,5 @@ flutter:
     - assets/img/tab2/sale/sale 3.png
     - assets/img/tab2/sale/denim.png
     - assets/img/mockup_product/
-
+    - assets/gif/category/
+    - assets/img/category/

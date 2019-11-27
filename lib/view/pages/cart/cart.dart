@@ -80,7 +80,7 @@ class _CartState extends State<CartPage> {
                         leading:
                             Icon(Icons.local_shipping, color: Colors.grey[700]),
                         title: Text(
-                          "Mua thêm $freeShip VND hoặc nhiều hơn để được hưởng ưu đãi giao hàng MIỄN PHÍ !",
+                          "Mua thêm $freeShip ₫ hoặc nhiều hơn để được hưởng ưu đãi giao hàng MIỄN PHÍ !",
                           style: TextStyle(
                               fontSize: 14.0, color: Colors.grey[700]),
                         ),
@@ -131,7 +131,7 @@ class _CartState extends State<CartPage> {
                         },
                         leading: Icon(Icons.card_giftcard, color: Colors.black),
                         title: Text(
-                          "Mua thêm $getGift VND để nhận được những quà tặng HẤP DẪN !",
+                          "Mua thêm $getGift ₫ để nhận được những quà tặng HẤP DẪN !",
                           style: TextStyle(fontSize: 14.0, color: Colors.black),
                         ),
                         trailing: Icon(
@@ -216,7 +216,7 @@ class _CartState extends State<CartPage> {
                             ),
                             Expanded(
                               child: Text(
-                                "${product.price} VND",
+                                "${product.price} ₫",
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 16.0),
@@ -345,8 +345,8 @@ class _CartState extends State<CartPage> {
                   children: <TextSpan>[
                     TextSpan(
                         text: (totalPrice != 0)
-                            ? "${numberToString(totalPrice)} VND"
-                            : "0 VND",
+                            ? "${numberToString(totalPrice)} ₫"
+                            : "0 ₫",
                         style: TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 16.0))
                   ]),

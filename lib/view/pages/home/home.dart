@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:store_v2/presenter/language/language_vi.dart';
 import 'package:store_v2/presenter/mock_data/mock_data.dart';
 import 'package:store_v2/view/pages/cart/cart.dart';
+import 'package:store_v2/view/pages/categories/categories.dart';
 import 'package:store_v2/view/pages/notification/noti.dart';
 import 'package:store_v2/view/pages/profile/profile.dart';
 import 'package:store_v2/view/pages/search/search.dart';
@@ -147,6 +148,10 @@ class _HomePageState extends State<HomePage> {
                   setState(() {
                     _selectedIndex = 0;
                     // chuyển tới trang danh mục
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CategoryView()));
                   });
                   break;
                 case 2:
