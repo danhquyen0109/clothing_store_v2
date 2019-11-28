@@ -56,7 +56,7 @@ class _CategoryState extends State<CategoryView> {
         body: TabBarView(
           children: <Widget>[
             womenView(),
-            Container(),
+            menView(),
           ],
         ),
       ),
@@ -76,10 +76,10 @@ class _CategoryState extends State<CategoryView> {
       tabs: <Tab>[
         Tab(child: Text('#Black Friday')),
         Tab(child: Text('Hàng mới')),
-        Tab(child: Text('Đầm')),
-        Tab(child: Text('Quần jean')),
-        Tab(child: Text('Đồ bó')),
         Tab(child: Text('Denim')),
+        Tab(child: Text('Đầm')),
+        Tab(child: Text('Quần')),
+        Tab(child: Text('Đồ bó')),
         Tab(child: Text('Giày')),
         Tab(child: Text('Phụ kiện')),
       ],
@@ -93,6 +93,132 @@ class _CategoryState extends State<CategoryView> {
         verticalTab1(),
         verticalTab1(),
       ],
+    );
+  }
+
+  Widget menView() {
+    return VerticalTabs(
+      itemExtent: 71,
+      selectedTabBackgroundColor: Colors.grey[50],
+      tabsWidth: MediaQuery.of(context).size.width / 3.5,
+      tabsElevation: 0.0,
+      // tabsWidth: 120,
+      unselectedTabBackgroundColor: Colors.white,
+      indicatorColor: Colors.transparent,
+      // tabsShadowColor: Colors.transparent,
+      tabs: <Tab>[
+        Tab(child: Text('#Black Friday')),
+        Tab(child: Text('Hàng mới')),
+        Tab(child: Text('Denim')),
+        Tab(child: Text('Áo thun')),
+        Tab(child: Text('Quần jean')),
+        Tab(child: Text('Thu đông')),
+        Tab(child: Text('Giày')),
+        Tab(child: Text('Phụ kiện')),
+      ],
+      contents: <Widget>[
+        verticalMenBlack(),
+        verticalMenBlack(),
+        verticalMenBlack(),
+        verticalMenBlack(),
+        verticalMenBlack(),
+        verticalMenBlack(),
+        verticalMenBlack(),
+        verticalMenBlack(),
+      ],
+    );
+  }
+
+  Widget verticalMenBlack() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
+      child: Container(
+        // color: Colors.white,
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              child: Image.asset(
+                "assets/gif/category/men banner.gif",
+                height: 100,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.only(
+                left: 8.0,
+                right: 8.0,
+                top: 8.0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Ưu đãi đặc biệt".toUpperCase(),
+                    style: TextStyle(fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Fluttertoast.showToast(
+                        msg: "Chức năng đang xây dựng",
+                        backgroundColor: Colors.black54,
+                        textColor: Colors.white,
+                      );
+                    },
+                    child: Image.asset(
+                      "assets/img/category/sale off.jpg",
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.only(
+                left: 8.0,
+                right: 8.0,
+                top: 8.0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Mua theo danh mục".toUpperCase(),
+                    style: TextStyle(fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Fluttertoast.showToast(
+                        msg: "Chức năng đang xây dựng",
+                        backgroundColor: Colors.black54,
+                        textColor: Colors.white,
+                      );
+                    },
+                    child: Image.asset(
+                      "assets/img/category/cate men.jpg",
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
