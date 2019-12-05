@@ -9,10 +9,8 @@ import 'package:store_v2/view/pages/tabview/women.dart';
 List<HomeTab> tabs = [
   HomeTab(title: "Nữ"),
   HomeTab(title: "Nam"),
-  HomeTab(title: "Trẻ em"),
-  HomeTab(title: "Hot")
 ];
-List<Widget> tabViews = [Women(), Men(), Children(), Hot()];
+List<Widget> tabViews = [Women(), Men()];
 
 List saleItems = [
   {

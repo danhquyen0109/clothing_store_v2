@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     // Size size = MediaQuery.of(context).size;
     return MaterialApp(
       home: DefaultTabController(
-        length: 4,
+        length: 2,
         child: Scaffold(
           appBar: AppBar(
             title: Text(
