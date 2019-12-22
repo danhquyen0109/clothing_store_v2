@@ -75,6 +75,13 @@ class CartDB {
     return result;
   }
 
+  Future<dynamic> deleteAll() async {
+    Database db = await this.database;
+    var result =
+        await db.delete(tableName);
+    return result;
+  }
+
   Future<List<Product>> getProducts() async {
     Database db = await this.database;
     List<Map> _listMapProduct = await db.query(tableName);

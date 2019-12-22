@@ -14,6 +14,10 @@ class CartBloc with ChangeNotifier {
     notifyListeners();
   }
 
+  void clearAll() {
+    _cart.clear();
+  }
+
   void clear(Product product) {
     if (_cart.containsKey(product.name)) {
       if (_cart[product.name] == 1) {

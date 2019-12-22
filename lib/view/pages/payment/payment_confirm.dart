@@ -1,9 +1,11 @@
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 import 'package:store_v2/presenter/cart/cart_query.dart';
 import 'package:store_v2/view/pages/payment/address.dart';
 import 'package:store_v2/view/pages/product/product.dart';
+import 'package:store_v2/view/widgets/cart_bloc.dart';
 
 class PaymentConfirm extends StatefulWidget {
   Address address;
@@ -31,6 +33,8 @@ class _PaymentConfirmState extends State<PaymentConfirm> {
 
   @override
   Widget build(BuildContext context) {
+    var bloc = Provider.of<CartBloc>(context);
+    var cart = bloc.cart;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -273,6 +277,8 @@ class _PaymentConfirmState extends State<PaymentConfirm> {
                     backgroundColor: Colors.black54,
                     textColor: Colors.white,
                   );
+                  deleteAll();
+                  bloc.clearAll();
                   Navigator.popAndPushNamed(context, "/home");
                 },
               ),

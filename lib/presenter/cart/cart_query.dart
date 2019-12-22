@@ -20,6 +20,8 @@ void productUpdate(Product product) async =>
     await cartDB.updateProduct(product);
 void deleteProduct(String name) async => await cartDB.deleteProduct(name);
 
+void deleteAll() async => await cartDB.deleteAll();
+
 Future<List<Product>> getListProducts() async {
   return await cartDB.getProducts();
 }
